@@ -1,0 +1,45 @@
+/* Dostosowanie karty */
+.home-card {
+    max-width: 350px; /* Ustalamy maksymalną szerokość karty */
+    margin: 15px; /* Odstęp między kartami */
+    border-radius: 10px; /* Zaokrąglamy rogi karty */
+    overflow: hidden; /* Zapobiegamy wystawaniu obrazka poza kartę */
+    transition: transform 0.3s ease; /* Dodajemy animację do transformacji */
+}
+
+.home-card:hover {
+    transform: translateY(-5px); /* Efekt podniesienia karty na hover */
+}
+
+/* Dostosowanie obrazu */
+.card-img-top {
+    width: 100%; /* Ustawiamy szerokość obrazu na 100% */
+    height: 200px; /* Ustawiamy stałą wysokość, ale można ją dostosować */
+    object-fit: cover; 
+ /* Obrazek zachowa proporcje, wypełniając dostępne miejsce */
+}
+
+/* Dostosowanie tytułu */
+.card-title {
+    font-size: 1.25rem; /* Ustalamy wielkość czcionki dla tytułu */
+    font-weight: 600; /* Czcionka pogrubiona */
+    margin-bottom: 10px; /* Odstęp pod tytułem */
+}
+
+/* Dostosowanie opisu */
+.card-text {
+    font-size: 1rem; /* Ustalamy wielkość czcionki dla opisu */
+    color: #555; /* Ustawiamy ciemny szary kolor dla tekstu */
+}
+
+/* Dostosowanie efektu cienia */
+.card.shadow-sm {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lekki cień */
+}
+
+/* Dostosowanie dla większych ekranów */
+@media (min-width: 768px) {
+    .home-card {
+        max-width: 300px; /* Zwiększamy szerokość karty na większych ekranach */
+    }
+}
