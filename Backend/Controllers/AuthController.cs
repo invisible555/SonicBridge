@@ -38,29 +38,33 @@ namespace Backend.Controllers
             {
                 return Unauthorized("Nieprawidłowy login lub hasło");
             }
-            if (_user.AccessToken !=null && _user.RefreshToken != null)
+
+            // Ustal czy HTTPS (np. na podstawie konfiguracji lub env)
+            bool isHttps = Request.IsHttps; // lub np. z IHostEnvironment
+
+            if (_user.AccessToken != null && _user.RefreshToken != null)
             {
                 Response.Cookies.Append("access_token", _user.AccessToken, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true, // tylko HTTPS w produkcji!
-                    SameSite = SameSiteMode.Strict, // lub Lax, zależnie od potrzeb
+                    Secure = true, // <-- użyj true na produkcji (HTTPS), false lokalnie (HTTP)
+                    SameSite = SameSiteMode.Strict,
+                    Path = "/",  // <-- bardzo ważne!// możesz zmienić na Lax jeśli masz problem z cross-origin
                     Expires = _user.ExpiryTime
-                   
                 });
 
-                // (opcjonalnie) refresh token w ciasteczku
                 Response.Cookies.Append("refresh_token", _user.RefreshToken, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true,
+                    Secure = true, // jak wyżej
                     SameSite = SameSiteMode.Strict,
-                    Expires = DateTime.UtcNow.AddDays(7) // np. dłużej niż access token
+                    Path = "/",  // <-- bardzo ważne!
+                    Expires = DateTime.UtcNow.AddDays(7)
                 });
             }
+
             return Ok(new
             {
-                
                 login = user.Login,
                 role = _user.Role,
                 tokenExpiredTime = _user.ExpiryTime,
@@ -111,7 +115,7 @@ namespace Backend.Controllers
 
             return Ok(new { message = "Zostałeś wylogowany." });
         }
-        [Authorize]
+        
         [HttpGet("me")]
         public IActionResult Me()
         {
@@ -145,7 +149,7 @@ namespace Backend.Controllers
             Response.Cookies.Append("access_token", result.AccessToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
+                Secure = true, // <-- użyj true na produkcji (HTTPS), false lokalnie (HTTP)
                 SameSite = SameSiteMode.Strict,
                 Expires = result.ExpiryTime
             });
@@ -156,7 +160,7 @@ namespace Backend.Controllers
                 Response.Cookies.Append("refresh_token", result.RefreshToken, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true,
+                    Secure = true, // <-- użyj true na produkcji (HTTPS), false lokalnie (HTTP)
                     SameSite = SameSiteMode.Strict,
                     Expires = DateTime.UtcNow.AddDays(7) // lub dłużej
                 });

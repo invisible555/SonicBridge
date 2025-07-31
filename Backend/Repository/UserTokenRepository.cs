@@ -14,25 +14,25 @@ namespace Backend.Repository
 
         public async Task AddAccessTokenAsync(UserAccessToken token)
         {
-            await _dbContext.UserAccessTokens.AddAsync(token);
+            await _dbContext.UserAccessToken.AddAsync(token);
         }
         public async Task AddRefreshTokenAsync(UserRefreshToken token)
         {
-            await _dbContext.UserRefreshTokens.AddAsync(token);
+            await _dbContext.UserRefreshToken.AddAsync(token);
         }
         public async Task<UserRefreshToken?> GetRefreshTokenAsync(string token)
         {
-            return await _dbContext.UserRefreshTokens
+            return await _dbContext.UserRefreshToken
                 .FirstOrDefaultAsync(t => t.Token == token && !t.IsRevoked && t.ExpiryDate > DateTime.UtcNow);
         }
         public async Task<UserAccessToken?> GetAccessTokenAsync(string token)
         {
-            return await _dbContext.UserAccessTokens
+            return await _dbContext.UserAccessToken
                 .FirstOrDefaultAsync(t => t.Token == token && !t.IsRevoked && t.ExpiryDate > DateTime.UtcNow);
         }
         public async Task RevokeRefreshTokenAsync(int userId, string refreshToken)
         {
-            var token = await _dbContext.UserRefreshTokens
+            var token = await _dbContext.UserRefreshToken
                 .FirstOrDefaultAsync(x => x.UserId == userId && x.Token == refreshToken && !x.IsRevoked);
 
             if (token != null)
@@ -43,7 +43,7 @@ namespace Backend.Repository
 
         public async Task RevokeAccessTokenAsync(int userId, string accessToken)
         {
-            var token = await _dbContext.UserAccessTokens
+            var token = await _dbContext.UserAccessToken
                 .FirstOrDefaultAsync(x => x.UserId == userId && x.Token == accessToken && !x.IsRevoked);
 
             if (token != null)

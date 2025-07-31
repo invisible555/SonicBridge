@@ -65,7 +65,7 @@ namespace Backend
                 options.AddPolicy("FrontendCorsPolicy", policy =>
                 {
                     policy
-                        .WithOrigins("http://localhost:3000", "http://localhost:5173") // Dodaj tu swoje adresy frontu!
+                        .WithOrigins("https://localhost:5173") // Dodaj tu swoje adresy frontu!
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials(); // Wa¿ne jeœli korzystasz z cookie!
@@ -78,7 +78,9 @@ namespace Backend
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserTokenRepository, UserTokenRepository>();
+            builder.Services.AddScoped<IFileRepository, FileRepository>();
             builder.Services.AddScoped<PasswordHasher<User>>();
+            builder.Services.AddScoped<IFileService, FileService>();
 
 
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "powerfullkey";
@@ -113,13 +115,27 @@ namespace Backend
             {
                 app.MapOpenApi();
             }
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseHttpsRedirection();
+            }
             app.UseSwagger();
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
             app.UseCors("FrontendCorsPolicy");
-            app.UseAuthorization();
+            app.Use(async (context, next) =>
+            {
+                var token = context.Request.Cookies["access_token"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    context.Request.Headers.Append("Authorization", $"Bearer {token}");
+                }
+                await next();
+            });
             app.UseAuthentication();
+            app.UseAuthorization();
+         
 
             app.MapControllers();
 

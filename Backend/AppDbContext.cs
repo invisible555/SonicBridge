@@ -11,9 +11,9 @@ namespace Backend
         {
         }
         public DbSet<User> User { get; set; } = null!;
-        public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
-        public DbSet<UserAccessToken> UserAccessTokens { get; set; }
-        public DbSet<UserFile> UserFiles { get; set; }
+        public DbSet<UserRefreshToken> UserRefreshToken { get; set; }
+        public DbSet<UserAccessToken> UserAccessToken { get; set; }
+        public DbSet<UserFile> UserFile { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

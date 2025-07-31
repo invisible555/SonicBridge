@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import axiosInstance from "../Utils/axiosConfig"; // <- Twój plik konfiguracyjny axiosa
+import axiosInstance from "../Utils/axiosConfig";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {login as loginAction } from "../Auth/Auth";
 
 const LoginPage: React.FC = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -15,9 +19,16 @@ const LoginPage: React.FC = () => {
     setLoading(true);
 
     try {
-      await axiosInstance.post("/auth/login", { login, password });
+      const res = await axiosInstance.post("/auth/login", { login, password });
+      // Załóżmy, że backend zwraca { login, role }
+      dispatch(
+        loginAction({
+          user: res.data.login,
+          role: res.data.role,
+        })
+      );
       setLoading(false);
-      navigate("/"); // Albo tam gdzie chcesz!
+      navigate("/"); // Albo np. "/dashboard"
     } catch (err: any) {
       setLoading(false);
       if (err.response && err.response.status === 401) {
@@ -37,7 +48,6 @@ const LoginPage: React.FC = () => {
         <h1 className="text-2xl font-bold text-center text-indigo-700 mb-2">
           Logowanie
         </h1>
-
         <div>
           <label className="block text-sm font-semibold mb-1 text-gray-700">
             Login lub e-mail
@@ -51,7 +61,6 @@ const LoginPage: React.FC = () => {
             autoComplete="username"
           />
         </div>
-
         <div>
           <label className="block text-sm font-semibold mb-1 text-gray-700">
             Hasło
@@ -65,11 +74,9 @@ const LoginPage: React.FC = () => {
             autoComplete="current-password"
           />
         </div>
-
         {error && (
           <div className="text-red-500 text-center text-sm">{error}</div>
         )}
-
         <button
           type="submit"
           disabled={loading}

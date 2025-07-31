@@ -10,3 +10,75 @@ services:
     ports:
       - "8080:80"
     restart: unless-stopped
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    image: sonicbridge-backend:latest
+    container_name: sonicbridge-backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=SonicBridge;User=sa;Password=YourStrong!Passw0rd
+    ports:
+      - "7293:80"
+    depends_on:
+      - db
+    restart: unless-stopped
+    volumes:
+      - ./UserFiles:/shared/UserFiles   # wspólny folder
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sonicbridge-db
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  redis:
+    image: redis:7
+    container_name: whisper-redis
+    ports:
+      - "6379:6379"
+
+  whisper-api:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    image: sonicbridge-whisper-api:latest
+    container_name: sonicbridge-whisper-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./python:/app
+      - ./UserFiles:/shared/UserFiles   # ten sam folder
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+
+  whisper-worker:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    image: sonicbridge-whisper-worker:latest
+    container_name: sonicbridge-whisper-worker
+    command: celery -A celery_worker.celery worker --loglevel=info
+    volumes:
+      - ./python:/app
+      - ./UserFiles:/shared/UserFiles   # ten sam folder
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+
+volumes:
+  mssql_data:

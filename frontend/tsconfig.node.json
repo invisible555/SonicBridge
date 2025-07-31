@@ -5,9 +5,10 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
+      "types": ["node"],
     "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    /* Bundler mode */
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",

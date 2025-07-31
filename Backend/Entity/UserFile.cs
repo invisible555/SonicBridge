@@ -9,5 +9,7 @@
         public User User { get; set; } = null!;
         public string FileName { get; set; } = null!;
         public DateTime UploadDate { get; set; } = DateTime.UtcNow;
+        public string FilePath => Path.Combine("UserFiles", FileName);
+        public bool IsDeleted { get; set; } = false;
     }
 }
