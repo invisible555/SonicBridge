@@ -35,7 +35,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const generateTranscription = useCallback(async () => {
     setLoadingTranscription(true);
     try {
-      const response = await axiosInstance.post(`/api/transcription`, {
+      const response = await axiosInstance.post(`/api/transcription/get`, {
         fileName,
         language,
       });

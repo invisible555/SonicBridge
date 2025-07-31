@@ -1,4 +1,5 @@
-﻿using Backend.Entity;
+﻿using Backend.DTO;
+using Backend.Entity;
 using Backend.Repository;
 using Backend.Service;
 using Microsoft.AspNetCore.Authorization;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace Backend.Controllers
 {
@@ -15,10 +17,13 @@ namespace Backend.Controllers
     {
         private readonly IFileService _fileService;
         private readonly IWebHostEnvironment _env;
-        public FileController(IFileService fileService, IWebHostEnvironment env)
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _userFilesPath = "/shared/UserFiles";
+        public FileController(IFileService fileService, IWebHostEnvironment env, IHttpClientFactory httpClientFactory)
         {
             _fileService = fileService;
             _env = env;
+            _httpClientFactory = httpClientFactory;
         }
         [Authorize]
         [HttpPost("upload")]
@@ -56,7 +61,7 @@ namespace Backend.Controllers
             if (string.IsNullOrEmpty(fileName))
                 return BadRequest("Nie podano nazwy pliku.");
 
-            var uploadFolder = Path.Combine(_env.ContentRootPath, "UserFiles");
+            var uploadFolder = "/shared/UserFiles";
             var filePath = Path.Combine(uploadFolder, fileName);
 
             if (!System.IO.File.Exists(filePath))
@@ -77,6 +82,4 @@ namespace Backend.Controllers
             return File(memory, contentType, fileName);
         }
     }
-
-
 }

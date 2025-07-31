@@ -71,7 +71,12 @@ namespace Backend
                         .AllowCredentials(); // Wa¿ne jeœli korzystasz z cookie!
                 });
             });
+            builder.Services.AddHttpClient("WhisperApi", client =>
+            {
+                client.BaseAddress = new Uri("http://whisper-api:8000");
+            });
 
+            builder.Services.AddScoped<ITranscriptionService, TranscriptionService>();
 
 
             builder.Services.AddScoped<JwtService>();
