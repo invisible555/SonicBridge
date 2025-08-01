@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axiosInstance from "../Utils/axiosConfig";
 import FileList from "../Components/FileList/FileList";
-
+//TODO ma się wyświetlać plik audio a jeżeli nie znajdzie go to poprostu nie można odtwarzać
 const FilesPage = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);

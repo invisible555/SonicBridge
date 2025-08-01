@@ -23,9 +23,20 @@ namespace Backend.Repository
                 .Where(f => f.UserId == userId && !f.IsDeleted)
                 .ToListAsync();
         }
+        public async Task<UserFile?> GetUserFileAsync(int userId, string fileName)
+        {
+            return await _dbContext.UserFile
+                .FirstOrDefaultAsync(f => f.UserId == userId && f.FileName == fileName);
+        }
+
         public async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
+        }
+        public void DeleteUserFile(UserFile file)
+        {
+            _dbContext.UserFile.Remove(file);
+        
         }
     }
 }

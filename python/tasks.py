@@ -13,13 +13,25 @@ celery = Celery(
 USERFILES_DIR = "/shared/UserFiles"
 
 @celery.task(bind=True)
-def transcribe_audio(self, file_name: str, language: str = None):
-    """
-    Transkrypcja pliku o podanej nazwie z katalogu UserFiles.
-    """
+def transcribe_audio(self, file_name: str, language: str = None, user_id: int = None):
     try:
-        file_path = os.path.join(USERFILES_DIR, file_name)
-        text = transcribe_file(file_path, language)
-        return {"file": file_name, "text": text}
+        if user_id:
+            file_path = os.path.join(USERFILES_DIR, str(user_id), file_name)
+        else:
+            file_path = os.path.join(USERFILES_DIR, file_name)
+
+        print(f"DEBUG: Start transkrypcji pliku {file_path}, {language}")  # 🔹 LOG DEBUG
+
+        out_file = transcribe_file(file_path, language)
+
+        print(f"DEBUG: Wynik zapisany w {out_file}")  # 🔹 LOG DEBUG
+
+        return {
+            "status": "done",
+            "result": {"file_path": out_file}
+        }
     except Exception as e:
-        return {"error": str(e)}
+        return {
+            "status": "error",
+            "result": {"text": str(e)}
+        }

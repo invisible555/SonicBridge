@@ -1,141 +1,131 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\",
+  "WorkspaceRootPath": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\controllers\\transcriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\transcriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\transcriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\transcriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dto\\transcriptionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\transcriptionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\itranscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\itranscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\service\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\entity\\userfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\userfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\usertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\usertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\filerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\filerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\filerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\entity\\useraccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\useraccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserFile.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\repository\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\service\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\service\\transcriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\transcriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SonicBridge/True/SqlTable/dbo.User.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SonicBridge/True/SqlTable/dbo.UserFile.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\controllers\\transcriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\transcriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserRefreshToken.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dto\\transcriptionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\transcriptionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\entity\\userfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\userfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\usertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\usertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\entity\\useraccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\useraccesstoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\repository\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:repository\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dto\\authenticationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dto\\authenticationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\authenticationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dto\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dto\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dto\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dto\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\dto\\registrationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\dto\\registrationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:dto\\registrationresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\entity\\userrefreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\niewi\\desktop\\sonicbridge\\backend\\entity\\userrefreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:entity\\userrefreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|c:\\users\\dell\\desktop\\sonicbridge\\sonicbridge\\backend\\service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2851A370-7656-46D7-AEDA-DC3F650D5C9F}|Backend.csproj|solutionrelative:service\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -150,151 +140,177 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FileService.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\FileService.cs",
+              "RelativeDocumentMoniker": "Service\\FileService.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\FileService.cs",
+              "RelativeToolTip": "Service\\FileService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T12:06:55.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IFileService.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\IFileService.cs",
+              "RelativeDocumentMoniker": "Service\\IFileService.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\IFileService.cs",
+              "RelativeToolTip": "Service\\IFileService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T11:49:20.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "dbo.User [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SonicBridge/True/SqlTable/dbo.User.sql",
+              "ToolTip": "dbo.User [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-08-01T11:30:59.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "dbo.UserFile [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SonicBridge/True/SqlTable/dbo.UserFile.sql",
+              "ToolTip": "dbo.UserFile [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-08-01T11:30:49.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TranscriptionService.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\TranscriptionService.cs",
+              "RelativeDocumentMoniker": "Service\\TranscriptionService.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Service\\TranscriptionService.cs",
+              "RelativeToolTip": "Service\\TranscriptionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T10:41:27.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "dbo.UserRefreshToken.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserRefreshToken.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserRefreshToken.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-07-31T17:15:00.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "TranscriptionController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\TranscriptionController.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\TranscriptionController.cs",
               "RelativeDocumentMoniker": "Controllers\\TranscriptionController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\TranscriptionController.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\TranscriptionController.cs",
               "RelativeToolTip": "Controllers\\TranscriptionController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T12:46:47.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TranscriptionService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\TranscriptionService.cs",
-              "RelativeDocumentMoniker": "Service\\TranscriptionService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\TranscriptionService.cs",
-              "RelativeToolTip": "Service\\TranscriptionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T12:36:31.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "TranscriptionRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\TranscriptionRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\TranscriptionRequestDTO.cs",
               "RelativeDocumentMoniker": "DTO\\TranscriptionRequestDTO.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\TranscriptionRequestDTO.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\TranscriptionRequestDTO.cs",
               "RelativeToolTip": "DTO\\TranscriptionRequestDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T12:26:31.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T12:26:31.001Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Dockerfile",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Dockerfile",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Dockerfile",
               "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-29T14:17:56.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T14:17:56.796Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Program.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAAAE4AAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAowJYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T12:11:19.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-20T12:11:19.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\WeatherForecast.cs",
               "RelativeToolTip": "WeatherForecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T12:11:19.019Z",
+              "WhenOpened": "2025-07-20T12:11:19.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T12:11:48.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IFileRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IFileRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IFileRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IFileRepository.cs",
+              "RelativeToolTip": "Repository\\IFileRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T13:45:45.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T12:11:48.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ITranscriptionService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\ITranscriptionService.cs",
-              "RelativeDocumentMoniker": "Service\\ITranscriptionService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\ITranscriptionService.cs",
-              "RelativeToolTip": "Service\\ITranscriptionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T12:36:21.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FileService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\FileService.cs",
-              "RelativeDocumentMoniker": "Service\\FileService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\FileService.cs",
-              "RelativeToolTip": "Service\\FileService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA0AAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T13:47:51.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IFileRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IFileRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\IFileRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IFileRepository.cs",
-              "RelativeToolTip": "Repository\\IFileRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T13:45:45.101Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "FileRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\FileRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\FileRepository.cs",
               "RelativeDocumentMoniker": "Repository\\FileRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\FileRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\FileRepository.cs",
               "RelativeToolTip": "Repository\\FileRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwCMAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T13:45:54.774Z"
+              "WhenOpened": "2025-07-29T13:45:54.774Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -302,11 +318,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "Backend.http",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Backend.http",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Backend.http",
               "RelativeDocumentMoniker": "Backend.http",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Backend.http",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Backend.http",
               "RelativeToolTip": "Backend.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
@@ -314,11 +330,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\User.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\User.cs",
               "RelativeDocumentMoniker": "Entity\\User.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\User.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\User.cs",
               "RelativeToolTip": "Entity\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -326,45 +342,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "FileController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\FileController.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\FileController.cs",
               "RelativeDocumentMoniker": "Controllers\\FileController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\FileController.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\FileController.cs",
               "RelativeToolTip": "Controllers\\FileController.cs",
-              "ViewState": "AgIAAEsAAAAAAAA6BuYswFMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAADwvzYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T11:33:07.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IFileService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\IFileService.cs",
-              "RelativeDocumentMoniker": "Service\\IFileService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\IFileService.cs",
-              "RelativeToolTip": "Service\\IFileService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T13:47:43.437Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "dbo.UserFile.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserFile.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ReactProjectDb/True/SqlTable/dbo.UserFile.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-07-30T12:07:23.446Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "RegistrationRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\RegistrationRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\RegistrationRequestDTO.cs",
               "RelativeDocumentMoniker": "DTO\\RegistrationRequestDTO.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\RegistrationRequestDTO.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\RegistrationRequestDTO.cs",
               "RelativeToolTip": "DTO\\RegistrationRequestDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -372,11 +367,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IUserRepository.cs",
               "RelativeToolTip": "Repository\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -384,11 +379,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "RegistrationResultDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\RegistrationResultDTO.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\RegistrationResultDTO.cs",
               "RelativeDocumentMoniker": "DTO\\RegistrationResultDTO.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\RegistrationResultDTO.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\RegistrationResultDTO.cs",
               "RelativeToolTip": "DTO\\RegistrationResultDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,11 +391,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "UserTokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\UserTokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\UserTokenRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UserTokenRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\UserTokenRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\UserTokenRepository.cs",
               "RelativeToolTip": "Repository\\UserTokenRepository.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwCcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -408,11 +403,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "IUserTokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IUserTokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IUserTokenRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IUserTokenRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\IUserTokenRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\IUserTokenRepository.cs",
               "RelativeToolTip": "Repository\\IUserTokenRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -420,11 +415,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "UserAccessToken.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserAccessToken.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserAccessToken.cs",
               "RelativeDocumentMoniker": "Entity\\UserAccessToken.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserAccessToken.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserAccessToken.cs",
               "RelativeToolTip": "Entity\\UserAccessToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -432,23 +427,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\JwtService.cs",
-              "RelativeDocumentMoniker": "Service\\JwtService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\JwtService.cs",
-              "RelativeToolTip": "Service\\JwtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:35:08.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "AuthenticationResultDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\AuthenticationResultDTO.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\AuthenticationResultDTO.cs",
               "RelativeDocumentMoniker": "DTO\\AuthenticationResultDTO.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\AuthenticationResultDTO.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\AuthenticationResultDTO.cs",
               "RelativeToolTip": "DTO\\AuthenticationResultDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -456,35 +439,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Service\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\IAuthService.cs",
-              "RelativeToolTip": "Service\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:32:38.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Service\\AuthService.cs",
-              "RelativeToolTip": "Service\\AuthService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwHIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:30:50.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Repository\\UserRepository.cs",
               "RelativeToolTip": "Repository\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -492,13 +451,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-07-23T11:54:16.676Z"
             },
@@ -506,21 +465,21 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\AppDbContext.cs",
               "RelativeDocumentMoniker": "AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\AppDbContext.cs",
               "RelativeToolTip": "AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T11:47:49.479Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "UserRefreshToken.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserRefreshToken.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserRefreshToken.cs",
               "RelativeDocumentMoniker": "Entity\\UserRefreshToken.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserRefreshToken.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserRefreshToken.cs",
               "RelativeToolTip": "Entity\\UserRefreshToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -528,11 +487,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "UserFile.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserFile.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserFile.cs",
               "RelativeDocumentMoniker": "Entity\\UserFile.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Entity\\UserFile.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Entity\\UserFile.cs",
               "RelativeToolTip": "Entity\\UserFile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -540,11 +499,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "LoginRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\LoginRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\LoginRequestDTO.cs",
               "RelativeDocumentMoniker": "DTO\\LoginRequestDTO.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\DTO\\LoginRequestDTO.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\DTO\\LoginRequestDTO.cs",
               "RelativeToolTip": "DTO\\LoginRequestDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -552,15 +511,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwDEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T11:32:54.422Z"
+              "WhenOpened": "2025-07-23T11:32:54.422Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -12,6 +12,8 @@ services:
     restart: unless-stopped
     depends_on:
       - backend
+    env_file:
+      - ./frontend/.env.docker
 
   backend:
     build:
@@ -21,21 +23,23 @@ services:
     container_name: sonicbridge-backend
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=db;Database=SonicBridge;User=sa;Password=YourStrong!Passw0rd
+      - ConnectionStrings__DefaultConnection=Server=db,1433;Database=SonicBridge;User=sa;Password=YourStrong!Passw0rd;Encrypt=False;TrustServerCertificate=True
     ports:
       - "7293:80"
     depends_on:
       - db
+      - whisper-api   # 🔹 Backend poczeka aż API Whisper wystartuje
     restart: unless-stopped
     volumes:
-      - ./UserFiles:/shared/UserFiles   # wspólny folder
+      - ./UserFiles:/shared/UserFiles
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sonicbridge-db
     environment:
-      SA_PASSWORD: "YourStrong!Passw0rd"
-      ACCEPT_EULA: "Y"
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Express
     ports:
       - "1433:1433"
     volumes:
@@ -47,17 +51,23 @@ services:
     ports:
       - "6379:6379"
 
-  whisper-api:
+  # 🔹 Budujemy obraz Whisper tylko raz
+  whisper:
     build:
       context: ./python
       dockerfile: Dockerfile
-    image: sonicbridge-whisper-api:latest
+    image: sonicbridge-whisper:latest
+
+  whisper-api:
+    image: sonicbridge-whisper:latest
     container_name: sonicbridge-whisper-api
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     ports:
       - "8000:8000"
     volumes:
       - ./python:/app
-      - ./UserFiles:/shared/UserFiles   # ten sam folder
+      - ./UserFiles:/shared/UserFiles
+      - whisper_models:/root/.cache/whisper   # 🔹 Modele na wolumenie
     depends_on:
       - redis
     environment:
@@ -65,15 +75,13 @@ services:
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
 
   whisper-worker:
-    build:
-      context: ./python
-      dockerfile: Dockerfile
-    image: sonicbridge-whisper-worker:latest
+    image: sonicbridge-whisper:latest
     container_name: sonicbridge-whisper-worker
     command: celery -A celery_worker.celery worker --loglevel=info
     volumes:
       - ./python:/app
-      - ./UserFiles:/shared/UserFiles   # ten sam folder
+      - ./UserFiles:/shared/UserFiles
+      - whisper_models:/root/.cache/whisper   # 🔹 Modele na wolumenie
     depends_on:
       - redis
     environment:
@@ -82,3 +90,4 @@ services:
 
 volumes:
   mssql_data:
+  whisper_models:   # 🔹 Modele Whispera zapisują się tutaj

@@ -20,7 +20,8 @@ const LoginPage: React.FC = () => {
 
     try {
       const res = await axiosInstance.post("/auth/login", { login, password });
-      // Załóżmy, że backend zwraca { login, role }
+      // Załóżmy, że backend zwraca { login, role } 
+      console.log("API URL:", import.meta.env.VITE_API_URL);
       dispatch(
         loginAction({
           user: res.data.login,

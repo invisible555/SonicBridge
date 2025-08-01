@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 celery
 redis
 openai-whisper
