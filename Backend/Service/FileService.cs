@@ -45,5 +45,14 @@ namespace Backend.Service
             return await _fileRepository.GetFilesByUserIdAsync(userId);
 
         }
+        public async Task DeleteFileAsync(int userId, string fileName)
+        {
+            var file = await _fileRepository.GetUserFileAsync(userId, fileName);
+            if (file != null)
+            {
+                 _fileRepository.DeleteUserFile(file);
+                await _fileRepository.SaveChangesAsync();
+            }
+        }
     }
 }

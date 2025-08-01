@@ -32,8 +32,9 @@ namespace Backend.Controllers
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userIdClaim == null || !int.TryParse(userIdClaim, out int userId))
                 return Unauthorized("Nie znaleziono użytkownika.");
-
-            var uploadFolder = Path.Combine(_env.ContentRootPath, "UserFiles");
+            var uploadFolder = Path.Combine("/shared/UserFiles", userId.ToString());
+            // var uploadFolder = "/shared/UserFiles";
+            //var uploadFolder = Path.Combine(_env.ContentRootPath, "UserFiles");
             try
             {
                 var userFile = await _fileService.UploadAsync(userId, file, uploadFolder);
@@ -58,10 +59,15 @@ namespace Backend.Controllers
         [HttpGet("download/{fileName}")]
         public async Task<IActionResult> GetAudioFile(string fileName)
         {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null || !int.TryParse(userIdClaim, out int userId))
+                return Unauthorized("Nie znaleziono użytkownika.");
             if (string.IsNullOrEmpty(fileName))
                 return BadRequest("Nie podano nazwy pliku.");
 
-            var uploadFolder = "/shared/UserFiles";
+            var uploadFolder = Path.Combine("/shared/UserFiles", userId.ToString());
+            //var uploadFolder = "/shared/UserFiles";
+            // var uploadFolder = Path.Combine(_env.ContentRootPath, "UserFiles");
             var filePath = Path.Combine(uploadFolder, fileName);
 
             if (!System.IO.File.Exists(filePath))
@@ -81,5 +87,39 @@ namespace Backend.Controllers
 
             return File(memory, contentType, fileName);
         }
+
+        [Authorize]
+        [HttpDelete("delete/{fileName}")]
+        public async Task<IActionResult> DeleteFile(string fileName)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null || !int.TryParse(userIdClaim, out int userId))
+                return Unauthorized("Nie znaleziono użytkownika.");
+
+            if (string.IsNullOrEmpty(fileName))
+                return BadRequest("Nie podano nazwy pliku.");
+
+            var uploadFolder = Path.Combine("/shared/UserFiles", userId.ToString());
+            var filePath = Path.Combine(uploadFolder, fileName);
+
+            try
+            {
+                // 1️⃣ Usuń fizyczny plik
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                // 2️⃣ Usuń z bazy danych
+                await _fileService.DeleteFileAsync(userId, fileName);
+
+                return Ok(new { message = "Plik został usunięty." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Błąd podczas usuwania pliku: {ex.Message}");
+            }
+        }
+
     }
 }

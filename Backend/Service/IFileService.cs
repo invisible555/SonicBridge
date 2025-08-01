@@ -6,5 +6,6 @@ namespace Backend.Service
     {
         Task<UserFile> UploadAsync(int userId, IFormFile file, string uploadRootPath);
         Task<List<UserFile>> GetFilesByUserIdAsync(int userId);
+        Task DeleteFileAsync(int userId, string fileName);
     }
 }

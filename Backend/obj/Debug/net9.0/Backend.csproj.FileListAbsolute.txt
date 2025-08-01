@@ -78,7 +78,6 @@ C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.buil
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\Backend.csproj.Up2Date
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\Backend.dll
 C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\refint\Backend.dll
@@ -338,3 +337,4 @@ C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\refint\Ba
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\Backend.pdb
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\Backend.genruntimeconfig.cache
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\ref\Backend.dll
+C:\Users\niewi\Desktop\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

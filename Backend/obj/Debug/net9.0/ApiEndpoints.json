@@ -67,6 +67,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Backend.Controllers.TranscriptionController",
+    "Method": "GetOrGenerate",
+    "RelativePath": "api/Transcription/get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.DTO.TranscriptionRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "GetProfile",
     "RelativePath": "api/User/profile",

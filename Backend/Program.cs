@@ -65,7 +65,7 @@ namespace Backend
                 options.AddPolicy("FrontendCorsPolicy", policy =>
                 {
                     policy
-                        .WithOrigins("https://localhost:5173") // Dodaj tu swoje adresy frontu!
+                        .WithOrigins("https://localhost:5173","http://localhost:8080") // Dodaj tu swoje adresy frontu!
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials(); // Wa¿ne jeœli korzystasz z cookie!
@@ -143,7 +143,12 @@ namespace Backend
          
 
             app.MapControllers();
-
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.EnsureCreated();  // automatycznie utworzy bazê, jeœli nie istnieje
+                                              // db.Database.Migrate();     // jeœli chcesz u¿yæ migracji
+            }
             app.Run();
         }
     }

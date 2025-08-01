@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:7293";
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: apiUrl,
   withCredentials: true,
 });
 
@@ -10,7 +10,7 @@ axiosInstance.interceptors.response.use(
   response => response,
   async error => {
     const originalRequest = error.config;
-
+    
     // Sprawdź czy błąd 401 i nie retryowaliśmy jeszcze tego requesta
     if (
       error.response?.status === 401 &&
