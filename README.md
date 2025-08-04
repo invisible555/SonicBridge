@@ -2,9 +2,9 @@
 
 ## 📦 Zawartość projektu
 
-- **.client** – frontend w React
-- **.server** – backend w ASP.NET Core
-
+- **frontend** – frontend w React
+- **backend** – backend w ASP.NET Core
+- **python** - fastAPI, kolejka celery, whisper transkrypcja oraz libretranslatedo tłumaczenia
 Instrukcja uruchomienia projektu
 
 
