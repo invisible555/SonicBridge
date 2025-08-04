@@ -87,7 +87,12 @@ services:
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
-
+  libretranslate:
+    image: libretranslate/libretranslate
+    container_name: libretranslate
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
 volumes:
   mssql_data:
   whisper_models:   # 🔹 Modele Whispera zapisują się tutaj

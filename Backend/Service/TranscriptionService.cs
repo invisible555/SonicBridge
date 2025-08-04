@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 using System.Text.Json;
 
 namespace Backend.Service
@@ -44,5 +45,7 @@ namespace Backend.Service
             // ✅ Zwracamy komunikat że transkrypcja w toku
             return "Transkrypcja rozpoczęta. Sprawdź później.";
         }
+        
+      
     }
 }

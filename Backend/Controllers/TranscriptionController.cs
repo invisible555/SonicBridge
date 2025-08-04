@@ -3,6 +3,7 @@ using Backend.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 using System.Security.Claims;
 
 namespace Backend.Controllers
@@ -51,6 +52,7 @@ namespace Backend.Controllers
                 return StatusCode(500, $"Błąd serwera: {ex.Message}");
             }
         }
+        
     }
 
  
