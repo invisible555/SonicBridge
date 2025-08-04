@@ -86,7 +86,7 @@ namespace Backend
             builder.Services.AddScoped<IFileRepository, FileRepository>();
             builder.Services.AddScoped<PasswordHasher<User>>();
             builder.Services.AddScoped<IFileService, FileService>();
-
+            builder.Services.AddScoped<ITranslationService, TranslationService>();
 
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "powerfullkey";
             var keyBytes = Encoding.UTF8.GetBytes(jwtKey);

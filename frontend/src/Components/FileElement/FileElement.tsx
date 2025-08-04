@@ -9,6 +9,11 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const [transcription, setTranscription] = useState<string>("");
   const [language, setLanguage] = useState<string>("pl");
   const [loadingTranscription, setLoadingTranscription] = useState(false);
+
+  const [translation, setTranslation] = useState<string>("");
+  const [targetLang, setTargetLang] = useState<string>("en");
+  const [loadingTranslation, setLoadingTranslation] = useState(false);
+
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
 
@@ -19,6 +24,8 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const generateTranscription = useCallback(async () => {
     setLoadingTranscription(true);
     setError(null);
+    setTranscription("");
+    setTranslation("");
     try {
       const response = await axiosInstance.post(`/api/transcription/get`, {
         fileName,
@@ -32,6 +39,25 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
       setLoadingTranscription(false);
     }
   }, [fileName, language]);
+
+  const generateTranslation = useCallback(async () => {
+    setLoadingTranslation(true);
+    setError(null);
+    setTranslation("");
+    try {
+      const form = new FormData();
+      form.append("text", transcription);
+      form.append("source_lang", language);
+      form.append("target_lang", targetLang);
+      const response = await axiosInstance.post(`api/translation/translation`, form);
+      setTranslation(response.data.translated_text);
+    } catch (err) {
+      console.error("Błąd przy tłumaczeniu:", err);
+      setError("Wystąpił problem podczas tłumaczenia.");
+    } finally {
+      setLoadingTranslation(false);
+    }
+  }, [transcription, language, targetLang]);
 
   const togglePlayer = useCallback(async () => {
     if (showPlayer) {
@@ -54,8 +80,8 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     }
 
     setShowPlayer(true);
-    generateTranscription();
-  }, [fileName, showPlayer, generateTranscription]);
+    // NIE wywołujemy transkrypcji automatycznie!
+  }, [fileName, showPlayer]);
 
   const handleDelete = useCallback(async () => {
     if (!window.confirm(`Czy na pewno chcesz usunąć plik "${displayName}"?`)) return;
@@ -64,7 +90,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     try {
       await axiosInstance.delete(`/api/file/delete/${encodeURIComponent(fileName)}`);
       alert("Plik został usunięty.");
-      // tutaj możesz np. wywołać callback do odświeżenia listy
+      // możesz dodać callback do odświeżenia listy
     } catch (err) {
       console.error("Błąd przy usuwaniu pliku:", err);
       alert("Nie udało się usunąć pliku.");
@@ -80,6 +106,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
           className="flex items-center space-x-4 min-w-0 cursor-pointer"
           onClick={togglePlayer}
         >
+          {/* Ikona */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8 text-gray-500 flex-shrink-0"
@@ -96,8 +123,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
           </svg>
           <p className="text-gray-800 font-medium truncate">{displayName}</p>
         </div>
-
-        {/* 🔥 przycisk usuwania */}
+        {/* Przycisk usuwania */}
         <button
           onClick={handleDelete}
           disabled={deleting}
@@ -118,7 +144,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
           )}
 
           <div className="mt-3 flex items-center gap-2">
-            <label className="text-sm text-gray-700">Język:</label>
+            <label className="text-sm text-gray-700">Język transkrypcji:</label>
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
@@ -129,17 +155,57 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
               <option value="fr">Francuski</option>
               <option value="de">Niemiecki</option>
             </select>
+            <button
+              className="ml-3 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
+              onClick={generateTranscription}
+              disabled={loadingTranscription}
+            >
+              {loadingTranscription ? "Generuję..." : "Generuj transkrypcję"}
+            </button>
           </div>
-
-          {loadingTranscription && (
-            <p className="mt-2 text-sm text-gray-500">Ładowanie transkrypcji...</p>
-          )}
 
           {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
           {transcription && !loadingTranscription && (
             <div className="mt-3 bg-gray-100 rounded p-3 text-sm text-gray-800 whitespace-pre-wrap">
+              <div><b>Transkrypcja:</b></div>
               {transcription}
+            </div>
+          )}
+
+          {/* Blok tłumaczenia */}
+          {transcription && !loadingTranscription && (
+            <div className="mt-4">
+              <div className="flex items-center gap-2">
+                <label className="text-sm text-gray-700">Język docelowy:</label>
+                <select
+                  value={targetLang}
+                  onChange={(e) => setTargetLang(e.target.value)}
+                  className="border rounded px-2 py-1 text-sm"
+                >
+                  <option value="en">Angielski</option>
+                  <option value="pl">Polski</option>
+                  <option value="fr">Francuski</option>
+                  <option value="de">Niemiecki</option>
+                  {/* Dodaj kolejne języki */}
+                </select>
+                <button
+                  className="ml-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"
+                  onClick={generateTranslation}
+                  disabled={loadingTranslation}
+                >
+                  {loadingTranslation ? "Tłumaczę..." : "Przetłumacz"}
+                </button>
+              </div>
+              {loadingTranslation && (
+                <p className="mt-2 text-sm text-gray-500">Tłumaczenie w toku...</p>
+              )}
+              {translation && !loadingTranslation && (
+                <div className="mt-3 bg-green-50 rounded p-3 text-sm text-gray-900 whitespace-pre-wrap">
+                  <div><b>Tłumaczenie:</b></div>
+                  {translation}
+                </div>
+              )}
             </div>
           )}
         </div>
