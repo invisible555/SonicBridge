@@ -34,5 +34,11 @@ namespace Backend.Repository
         {
             await _dbContext.SaveChangesAsync();
         }
+        public async Task DeleteAccountAsync(int userId, string password)
+        {
+            await _dbContext.User
+                .Where(u => u.Id == userId && u.Password == password)
+                .ExecuteDeleteAsync();
+        }
     }
 }

@@ -26,12 +26,22 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     setError(null);
     setTranscription("");
     setTranslation("");
+
     try {
       const response = await axiosInstance.post(`/api/transcription/get`, {
         fileName,
         language,
       });
-      setTranscription(response.data.text);
+
+      console.log("Odpowiedź backendu (transcription):", response.data);
+
+      // jeśli backend zwraca { text: "..."} → użyj text
+      // jeśli backend zwraca { status, taskId } → wyświetl to w JSON.stringify
+      if (typeof response.data.text === "string") {
+        setTranscription(response.data.text);
+      } else {
+        setTranscription(JSON.stringify(response.data, null, 2));
+      }
     } catch (err) {
       console.error("Błąd przy generowaniu transkrypcji:", err);
       setError("Wystąpił problem podczas generowania transkrypcji.");
@@ -49,8 +59,19 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
       form.append("text", transcription);
       form.append("source_lang", language);
       form.append("target_lang", targetLang);
-      const response = await axiosInstance.post(`api/translation/translation`, form);
-      setTranslation(response.data.translated_text);
+
+      const response = await axiosInstance.post(
+        `api/translation/translation`,
+        form
+      );
+
+      console.log("Odpowiedź backendu (translation):", response.data);
+
+      if (typeof response.data.translated_text === "string") {
+        setTranslation(response.data.translated_text);
+      } else {
+        setTranslation(JSON.stringify(response.data, null, 2));
+      }
     } catch (err) {
       console.error("Błąd przy tłumaczeniu:", err);
       setError("Wystąpił problem podczas tłumaczenia.");
@@ -80,7 +101,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     }
 
     setShowPlayer(true);
-    // NIE wywołujemy transkrypcji automatycznie!
   }, [fileName, showPlayer]);
 
   const handleDelete = useCallback(async () => {
@@ -90,7 +110,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     try {
       await axiosInstance.delete(`/api/file/delete/${encodeURIComponent(fileName)}`);
       alert("Plik został usunięty.");
-      // możesz dodać callback do odświeżenia listy
     } catch (err) {
       console.error("Błąd przy usuwaniu pliku:", err);
       alert("Nie udało się usunąć pliku.");
@@ -106,7 +125,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
           className="flex items-center space-x-4 min-w-0 cursor-pointer"
           onClick={togglePlayer}
         >
-          {/* Ikona */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8 text-gray-500 flex-shrink-0"
@@ -123,7 +141,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
           </svg>
           <p className="text-gray-800 font-medium truncate">{displayName}</p>
         </div>
-        {/* Przycisk usuwania */}
         <button
           onClick={handleDelete}
           disabled={deleting}
@@ -173,7 +190,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
             </div>
           )}
 
-          {/* Blok tłumaczenia */}
           {transcription && !loadingTranscription && (
             <div className="mt-4">
               <div className="flex items-center gap-2">
@@ -187,7 +203,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
                   <option value="pl">Polski</option>
                   <option value="fr">Francuski</option>
                   <option value="de">Niemiecki</option>
-                  {/* Dodaj kolejne języki */}
                 </select>
                 <button
                   className="ml-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"

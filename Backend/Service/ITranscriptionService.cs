@@ -2,6 +2,6 @@
 {
     public interface ITranscriptionService
     {
-        Task<string> GetOrGenerateTranscription(int userId, string fileName, string language);
+        Task<object> GetOrGenerateTranscription(int userId, string fileName, string language);
     }
 }

@@ -9,5 +9,6 @@ namespace Backend.Repository
         Task<User?> GetUserByIdAsync(int id);
         Task AddUserAsync(User user);
         Task SaveChangesAsync();
+        Task DeleteAccountAsync(int userId, string password);
     }
 }

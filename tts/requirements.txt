@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+celery[redis]
+TTS==0.22.0
+pydantic

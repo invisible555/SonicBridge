@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Backend.Controllers.FileController",
+    "Method": "DeleteFile",
+    "RelativePath": "api/File/delete/{fileName}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.FileController",
     "Method": "GetAudioFile",
     "RelativePath": "api/File/download/{fileName}",
     "HttpMethod": "GET",
@@ -77,6 +93,80 @@
       {
         "Name": "request",
         "Type": "Backend.DTO.TranscriptionRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.TranslationController",
+    "Method": "Translate",
+    "RelativePath": "api/Translation/translation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "source_lang",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "target_lang",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "ChangeEmail",
+    "RelativePath": "api/User/change-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.DTO.ChangeEmailRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/User/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.DTO.ChangePasswordRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/User/delete-account",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Backend.DTO.DeleteAccountDTO",
         "IsRequired": true
       }
     ],

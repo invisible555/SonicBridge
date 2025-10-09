@@ -65,7 +65,7 @@ namespace Backend
                 options.AddPolicy("FrontendCorsPolicy", policy =>
                 {
                     policy
-                        .WithOrigins("https://localhost:5173","http://localhost:8080") // Dodaj tu swoje adresy frontu!
+                        .WithOrigins("https://localhost:5173","http://localhost:8080", "http://localhost:7293", "http://localhost") // Dodaj tu swoje adresy frontu!
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials(); // Wa¿ne jeœli korzystasz z cookie!
@@ -87,6 +87,9 @@ namespace Backend
             builder.Services.AddScoped<PasswordHasher<User>>();
             builder.Services.AddScoped<IFileService, FileService>();
             builder.Services.AddScoped<ITranslationService, TranslationService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<TranscriptionRepository>();
+            builder.Services.AddScoped<ITranscriptionService, TranscriptionService>();
 
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "powerfullkey";
             var keyBytes = Encoding.UTF8.GetBytes(jwtKey);

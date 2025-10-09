@@ -48,7 +48,7 @@ namespace Backend.Controllers
                 {
                     HttpOnly = true,
                     Secure = true, // <-- użyj true na produkcji (HTTPS), false lokalnie (HTTP)
-                    SameSite = SameSiteMode.Strict,
+                    SameSite = SameSiteMode.None,
                     Path = "/",  // <-- bardzo ważne!// możesz zmienić na Lax jeśli masz problem z cross-origin
                     Expires = _user.ExpiryTime
                 });
@@ -57,7 +57,7 @@ namespace Backend.Controllers
                 {
                     HttpOnly = true,
                     Secure = true, // jak wyżej
-                    SameSite = SameSiteMode.Strict,
+                    SameSite = SameSiteMode.None,
                     Path = "/",  // <-- bardzo ważne!
                     Expires = DateTime.UtcNow.AddDays(7)
                 });
@@ -173,6 +173,7 @@ namespace Backend.Controllers
                 // nie zwracaj tokenów do frontu!
             });
         }
+        
 
     }
 }

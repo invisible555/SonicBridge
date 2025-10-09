@@ -8,7 +8,7 @@ services:
     image: sonicbridge-frontend:latest
     container_name: sonicbridge-frontend
     ports:
-      - "8080:80"
+      - "80:80"
     restart: unless-stopped
     depends_on:
       - backend
@@ -22,13 +22,15 @@ services:
     image: sonicbridge-backend:latest
     container_name: sonicbridge-backend
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=db,1433;Database=SonicBridge;User=sa;Password=YourStrong!Passw0rd;Encrypt=False;TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=db;Database=SonicBridge;User=sa;Password=YourStrong!Passw0rd;Encrypt=False;TrustServerCertificate=True
     ports:
       - "7293:80"
     depends_on:
       - db
-      - whisper-api   # 🔹 Backend poczeka aż API Whisper wystartuje
+      - whisper-api
+      - libretranslate
+      - tts-api
     restart: unless-stopped
     volumes:
       - ./UserFiles:/shared/UserFiles
@@ -44,35 +46,30 @@ services:
       - "1433:1433"
     volumes:
       - mssql_data:/var/opt/mssql
+    restart: unless-stopped
 
   redis:
     image: redis:7
-    container_name: whisper-redis
-    ports:
-      - "6379:6379"
+    container_name: sonicbridge-redis
+    restart: unless-stopped
 
-  # 🔹 Budujemy obraz Whisper tylko raz
-  whisper:
+  whisper-api:
     build:
       context: ./python
       dockerfile: Dockerfile
     image: sonicbridge-whisper:latest
-
-  whisper-api:
-    image: sonicbridge-whisper:latest
     container_name: sonicbridge-whisper-api
     command: uvicorn main:app --host 0.0.0.0 --port 8000
-    ports:
-      - "8000:8000"
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - whisper_models:/root/.cache/whisper   # 🔹 Modele na wolumenie
+      - whisper_models:/root/.cache/whisper
     depends_on:
       - redis
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    restart: unless-stopped
 
   whisper-worker:
     image: sonicbridge-whisper:latest
@@ -81,18 +78,55 @@ services:
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - whisper_models:/root/.cache/whisper   # 🔹 Modele na wolumenie
+      - whisper_models:/root/.cache/whisper
     depends_on:
       - redis
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    restart: unless-stopped
+
+  tts-api:
+    build:
+      context: ./tts
+      dockerfile: Dockerfile
+    image: sonicbridge-tts:latest
+    container_name: sonicbridge-tts-api
+    command: uvicorn tts_api:app --host 0.0.0.0 --port 8100
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./tts:/app
+      - ./UserFiles:/shared/UserFiles
+      - tts_models:/root/.local/share/tts
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    restart: unless-stopped
+
+  tts-worker:
+    image: sonicbridge-tts:latest
+    container_name: sonicbridge-tts-worker
+    command: celery -A celery_worker_tts.celery worker --loglevel=info
+    volumes:
+      - ./tts:/app
+      - ./UserFiles:/shared/UserFiles
+      - tts_models:/root/.local/share/tts
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    restart: unless-stopped
+
   libretranslate:
     image: libretranslate/libretranslate
     container_name: libretranslate
-    ports:
-      - "5000:5000"
     restart: unless-stopped
+
 volumes:
   mssql_data:
-  whisper_models:   # 🔹 Modele Whispera zapisują się tutaj
+  whisper_models:
+  tts_models:

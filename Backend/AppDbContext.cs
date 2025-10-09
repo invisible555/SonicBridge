@@ -14,6 +14,7 @@ namespace Backend
         public DbSet<UserRefreshToken> UserRefreshToken { get; set; }
         public DbSet<UserAccessToken> UserAccessToken { get; set; }
         public DbSet<UserFile> UserFile { get; set; }
+        public DbSet<TranscriptionTasks> TranscriptionTasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

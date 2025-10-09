@@ -12,3 +12,4 @@ celery.conf.update(
     timezone="UTC",
 )
 # tasks są w tasks.py, więc nie trzeba autodiscover – po imporcie będzie OK
+import tasks
