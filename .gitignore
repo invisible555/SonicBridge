@@ -1,0 +1,112 @@
+# ===================================
+# 👨‍💻 Ogólne ustawienia Gita
+# ===================================
+# Ignoruj pliki tymczasowe i systemowe
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Ignoruj pliki edytorów
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignoruj wirtualne środowiska
+venv/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+
+# ===================================
+# ⚙️ Backend (.NET + Python)
+# ===================================
+# Kompilacja .NET
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+*.dbmdl
+
+# Logi aplikacji
+logs/
+*.log
+
+# ===================================
+# 🧠 Modele AI i dane
+# ===================================
+# Modele Whisper i TTS
+whisper_models/
+tts_models/
+
+# Dane użytkowników i generowane pliki
+UserFiles/
+uploads/
+output/
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+*.zip
+
+# ===================================
+# 🐍 Python (FastAPI / Celery / TTS)
+# ===================================
+*.sqlite3
+celerybeat-schedule
+*.pid
+
+# ===================================
+# 🧰 Docker
+# ===================================
+# Ignore build cache & intermediate layers
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.mypy_cache/
+**/.pytest_cache/
+
+# ===================================
+# 🌍 Frontend (React)
+# ===================================
+# Node.js / build
+node_modules/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env pliki
+frontend/.env
+frontend/.env.local
+frontend/.env.development
+frontend/.env.production
+
+# ===================================
+# 📦 Inne duże pliki lub niepotrzebne
+# ===================================
+*.pth
+*.pt
+*.onnx
+*.tar
+*.tar.gz
+*.ckpt
+*.h5
+
+# ===================================
+# 🔒 Klucze i prywatne dane
+# ===================================
+*.key
+*.pem
+*.crt
+*.pfx
+secrets.json
+appsettings.Development.json
+.env.docker
