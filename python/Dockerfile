@@ -11,10 +11,11 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Instalacja paczek
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --timeout=300 --retries=10 -r requirements.txt
+
 
 # Pobranie modelu przy buildzie (opcjonalnie - można wyłączyć i pobierać przy starcie)
-RUN python -c "import whisper; whisper.load_model('large')"
+#RUN python -c "import whisper; whisper.load_model('large')"
 
 # Kopiujemy kod aplikacji
 COPY . .

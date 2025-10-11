@@ -4603,23 +4603,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\niewi\\.nuget\\packages\\": {},
-    "E:\\visual studio bonus\\NuGetPackages": {}
+    "C:\\Users\\Dell\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\niewi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\niewi\\Desktop\\SonicBridge\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dell\\Desktop\\sonicbridge\\SonicBridge\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\visual studio bonus\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\niewi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4647,7 +4647,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -4707,7 +4707,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

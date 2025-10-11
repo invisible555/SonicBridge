@@ -1,6 +1,26 @@
+# -----------------------------
+# requirements.txt – Whisper API (CPU only)
+# -----------------------------
+
+# Web API
 fastapi
-uvicorn[standard]
-celery
-redis
-openai-whisper
+uvicorn
+python-multipart
+pydantic
+
+# Kolejkowanie
+celery[redis]
+
+# Whisper (transkrypcja)
+openai-whisper==20231117
+ffmpeg-python
+
+# PyTorch (CPU-only, lekki)
+torch==2.1.0+cpu
+torchaudio==2.1.0+cpu
+torchvision==0.16.0+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
+
+# Przydatne narzędzia audio i obliczeniowe
+numpy<2
 python-multipart

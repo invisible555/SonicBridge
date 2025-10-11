@@ -53,6 +53,17 @@ services:
     container_name: sonicbridge-redis
     restart: unless-stopped
 
+  libretranslate:
+    image: libretranslate/libretranslate
+    container_name: libretranslate
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    command: ["--load-only", "en,pl,fr,de,es"]
+    environment:
+      - LT_LOAD_ONLY=en,pl,fr,de,es
+
+
   whisper-api:
     build:
       context: ./python
@@ -63,24 +74,30 @@ services:
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - whisper_models:/root/.cache/whisper
+      - ./whisper_models:/root/.cache/whisper
     depends_on:
       - redis
+      - libretranslate
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - LIBRETRANSLATE_URL=http://libretranslate:5000
     restart: unless-stopped
 
   whisper-worker:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
     image: sonicbridge-whisper:latest
     container_name: sonicbridge-whisper-worker
-    command: celery -A celery_worker.celery worker --loglevel=info
+    command: celery -A celery_worker.celery worker -Q whisper --loglevel=info
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - whisper_models:/root/.cache/whisper
+      - ./whisper_models:/root/.cache/whisper
     depends_on:
       - redis
+      - whisper-api
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -98,7 +115,7 @@ services:
     volumes:
       - ./tts:/app
       - ./UserFiles:/shared/UserFiles
-      - tts_models:/root/.local/share/tts
+      - ./tts_models:/root/.local/share/tts
     depends_on:
       - redis
     environment:
@@ -107,26 +124,24 @@ services:
     restart: unless-stopped
 
   tts-worker:
+    build:
+      context: ./tts
+      dockerfile: Dockerfile
     image: sonicbridge-tts:latest
     container_name: sonicbridge-tts-worker
     command: celery -A celery_worker_tts.celery worker --loglevel=info
     volumes:
       - ./tts:/app
       - ./UserFiles:/shared/UserFiles
-      - tts_models:/root/.local/share/tts
+      - ./tts_models:/root/.local/share/tts
     depends_on:
       - redis
+      - tts-api
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     restart: unless-stopped
 
-  libretranslate:
-    image: libretranslate/libretranslate
-    container_name: libretranslate
-    restart: unless-stopped
-
 volumes:
   mssql_data:
-  whisper_models:
   tts_models:

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repository
 {
-    public class TranscriptionRepository
+    public class TranscriptionRepository : ITranscriptionRepository
     {
         private readonly AppDbContext _context;
 
@@ -41,5 +41,11 @@ namespace Backend.Repository
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task UpdateAsync(TranscriptionTasks task)
+        {
+            _context.TranscriptionTasks.Update(task);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

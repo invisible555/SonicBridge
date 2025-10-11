@@ -337,3 +337,4 @@ C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\refint\Ba
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\Backend.pdb
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\Backend.genruntimeconfig.cache
 C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\ref\Backend.dll
+C:\Users\Dell\Desktop\sonicbridge\SonicBridge\Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

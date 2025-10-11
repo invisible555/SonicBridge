@@ -88,8 +88,8 @@ namespace Backend
             builder.Services.AddScoped<IFileService, FileService>();
             builder.Services.AddScoped<ITranslationService, TranslationService>();
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<TranscriptionRepository>();
-            builder.Services.AddScoped<ITranscriptionService, TranscriptionService>();
+            builder.Services.AddScoped<ITranscriptionRepository, TranscriptionRepository>();
+
 
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "powerfullkey";
             var keyBytes = Encoding.UTF8.GetBytes(jwtKey);

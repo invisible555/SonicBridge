@@ -22,7 +22,7 @@ namespace Backend.Service
         };
 
             var client = _httpClientFactory.CreateClient("WhisperApi");
-            var response = await client.PostAsync("translate", form);
+            var response = await client.PostAsync("/translate", form);
 
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)

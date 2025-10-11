@@ -1,5 +1,18 @@
+# requirements.txt — lekka wersja bez GPU / CUDA
+
 fastapi
 uvicorn
 celery[redis]
-TTS==0.22.0
+python-multipart
 pydantic
+
+# Coqui TTS z minimalnymi zależnościami
+TTS==0.22.0
+# Wyłącz CUDA — instalujemy CPU-only PyTorch
+torch==2.1.0+cpu
+torchaudio==2.1.0+cpu
+torchvision==0.16.0+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
+
+# dodatkowe narzędzia audio
+

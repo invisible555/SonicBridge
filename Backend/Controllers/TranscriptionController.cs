@@ -40,8 +40,10 @@ namespace Backend.Controllers
 
             try
             {
-                var text = await _transcriptionService.GetOrGenerateTranscription(userId.Value, request.FileName, request.Language);
-                return Ok(new { text });
+                var result = await _transcriptionService.GetOrGenerateTranscription(
+                    userId.Value, request.FileName, request.Language);
+
+                return Ok(result); // <— ważne: NIE zawijamy w { text = ... }
             }
             catch (TimeoutException)
             {
@@ -52,9 +54,11 @@ namespace Backend.Controllers
                 return StatusCode(500, $"Błąd serwera: {ex.Message}");
             }
         }
-        
+
     }
 
- 
 }
+
+ 
+
 

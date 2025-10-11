@@ -9,5 +9,6 @@ async def transcribe(
     language: str | None = Form(None),
     user_id: int | None = Form(None),
 ):
-    task = transcribe_audio.delay(file_name, language, user_id)
+    task = transcribe_audio.apply_async(args=[file_name, language, user_id], queue="whisper")
+
     return {"task_id": task.id, "status": "queued"}
