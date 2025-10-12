@@ -1,6 +1,7 @@
 import type FileElementProps from "./FileElementProps";
 import axiosInstance from "../../Utils/axiosConfig";
 import { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 
 const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const [showPlayer, setShowPlayer] = useState(false);
@@ -22,6 +23,10 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
 
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
+
+  // 🧠 Pobierz userId z Reduxa (authSlice)
+  const user = useSelector((state: any) => state.auth.user);
+  const userId = user?.id?.toString() || "default";
 
   const displayName = fileName.includes("_")
     ? fileName.split("_").slice(1).join("_")
@@ -100,20 +105,38 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     setTtsAudioUrl(null);
 
     try {
-      // 1️⃣ wyślij tekst do backendu .NET (który przekieruje do Pythona)
+      // 🧠 Przygotowanie danych formularza
       const form = new FormData();
       form.append("text", translation);
       form.append("voice", `tts_models/${ttsLang}/ljspeech/tacotron2-DDC`);
       form.append("output_name", `${fileName}_${ttsLang}.wav`);
+      form.append("user_id", userId);
 
+      // 1️⃣ Wyślij tekst do backendu .NET (który przekieruje do Pythona)
       const res = await axiosInstance.post(`/api/tts/generate`, form);
       console.log("TTS generate:", res.data);
 
-      const { task_id } = res.data;
+      // ✅ Obsługa sytuacji, gdy backend użył cache
+      if (res.data.status === "done" && res.data.file_path) {
+        console.log("✅ TTS plik znaleziony w cache:", res.data.file_path);
+        const filePath = res.data.file_path;
+        const [userIdFromPath, , filename] = filePath.split("/");
 
+        // Pobierz gotowy plik audio z backendu
+        const audioRes = await axiosInstance.get(`/api/tts/download/${userIdFromPath}/${filename}`, {
+          responseType: "blob",
+        });
+        const blobUrl = URL.createObjectURL(audioRes.data);
+        setTtsAudioUrl(blobUrl);
+        setTtsStatus("done");
+        return; // 🔚 nie rób pollingu
+      }
+
+      // 🔹 Standardowa ścieżka (gdy generacja jest nowa)
+      const { task_id } = res.data;
       if (!task_id) throw new Error("Brak task_id w odpowiedzi TTS.");
 
-      // 2️⃣ sprawdzaj status co 2 sekundy
+      // 2️⃣ Polling statusu co 2 sekundy
       setTtsStatus("generating");
       const interval = setInterval(async () => {
         try {
@@ -122,12 +145,14 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
 
           if (statusRes.data.status === "done") {
             clearInterval(interval);
-            const fileName = statusRes.data.file_name;
+            const filePath = statusRes.data.file_path; // np. "1/TTS/output.wav"
+            const [userIdFromPath, , filename] = filePath.split("/");
 
-            // 3️⃣ pobierz gotowy plik audio
-            const audioRes = await axiosInstance.get(`/api/tts/download/${fileName}`, {
+            // 3️⃣ Pobierz gotowy plik audio
+            const audioRes = await axiosInstance.get(`/api/tts/download/${userIdFromPath}/${filename}`, {
               responseType: "blob",
             });
+
             const blobUrl = URL.createObjectURL(audioRes.data);
             setTtsAudioUrl(blobUrl);
             setTtsStatus("done");
@@ -148,7 +173,7 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
       setTtsError("Wystąpił błąd przy wysyłaniu żądania TTS.");
       setTtsStatus("error");
     }
-  }, [translation, ttsLang, fileName]);
+  }, [translation, ttsLang, fileName, userId]);
 
   // === PLAYER ===
   const togglePlayer = useCallback(async () => {
@@ -222,7 +247,11 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
               <option value="fr">Francuski</option>
               <option value="de">Niemiecki</option>
             </select>
-            <button className="ml-3 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700" onClick={generateTranscription} disabled={loadingTranscription}>
+            <button
+              className="ml-3 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
+              onClick={generateTranscription}
+              disabled={loadingTranscription}
+            >
               {loadingTranscription ? "Generuję..." : "Generuj transkrypcję"}
             </button>
           </div>
@@ -247,7 +276,11 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
                   <option value="fr">Francuski</option>
                   <option value="de">Niemiecki</option>
                 </select>
-                <button className="ml-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700" onClick={generateTranslation} disabled={loadingTranslation}>
+                <button
+                  className="ml-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"
+                  onClick={generateTranslation}
+                  disabled={loadingTranslation}
+                >
                   {loadingTranslation ? "Tłumaczę..." : "Przetłumacz"}
                 </button>
               </div>
@@ -266,9 +299,6 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
                     <label className="text-sm text-gray-700">Język głosu:</label>
                     <select value={ttsLang} onChange={(e) => setTtsLang(e.target.value)} className="border rounded px-2 py-1 text-sm">
                       <option value="en">English</option>
-                      <option value="pl">Polski</option>
-                      <option value="fr">Français</option>
-                      <option value="de">Deutsch</option>
                     </select>
                     <button
                       className="ml-3 px-3 py-1 bg-purple-600 text-white rounded text-sm hover:bg-purple-700"

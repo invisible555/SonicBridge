@@ -32,15 +32,25 @@ def get_tts_model(model_name: str = DEFAULT_MODEL):
 #  Zadanie Celery
 # ==========================
 @celery.task(name="generate_tts_task")
-def generate_tts_task(text: str, voice_model: str = DEFAULT_MODEL, output_name: str = "output.wav"):
-    """Tworzy nagranie audio z tekstu przy użyciu Coqui TTS."""
+def generate_tts_task(
+    text: str,
+    voice_model: str = DEFAULT_MODEL,
+    output_name: str = "output.wav",
+    user_id: str = "default"
+):
+    """Tworzy nagranie audio z tekstu i zapisuje do folderu użytkownika."""
     try:
-        os.makedirs(OUTPUT_DIR, exist_ok=True)
-        output_path = os.path.join(OUTPUT_DIR, output_name)
+        # 🆕 Ścieżka użytkownika
+        user_dir = os.path.join("/shared/UserFiles", user_id, "TTS")
+        os.makedirs(user_dir, exist_ok=True)
+
+        output_path = os.path.join(user_dir, output_name)
+
+        # Załaduj model (z cache)
         tts_model = get_tts_model(voice_model)
         tts_model.tts_to_file(text=text, file_path=output_path)
 
-        # Zwracamy tylko nazwę pliku — nie całą ścieżkę
-        return os.path.basename(output_path)
+        # Zwróć względną ścieżkę (dla API)
+        return os.path.relpath(output_path, "/shared/UserFiles")
     except Exception as e:
         raise RuntimeError(f"Błąd TTS: {e}")
