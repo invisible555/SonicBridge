@@ -14,7 +14,7 @@ def transcribe_audio(self, file_name: str, language: str | None = None, user_id:
 
         self.update_state(state="STARTED", meta={"step": "loading_model"})
 
-        model = whisper.load_model("large")
+        model = whisper.load_model("large-v3", download_root="/app/whisper_models")
 
         self.update_state(state="STARTED", meta={"step": "transcribing", "file": file_path})
         result = model.transcribe(file_path, language=language)

@@ -63,7 +63,6 @@ services:
     environment:
       - LT_LOAD_ONLY=en,pl,fr,de,es
 
-
   whisper-api:
     build:
       context: ./python
@@ -74,7 +73,7 @@ services:
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - ./whisper_models:/root/.cache/whisper
+      - ./whisper_models:/app/whisper_models
     depends_on:
       - redis
       - libretranslate
@@ -94,7 +93,7 @@ services:
     volumes:
       - ./python:/app
       - ./UserFiles:/shared/UserFiles
-      - ./whisper_models:/root/.cache/whisper
+      - ./whisper_models:/app/whisper_models
     depends_on:
       - redis
       - whisper-api
