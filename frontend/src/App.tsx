@@ -20,7 +20,6 @@ function App() {
 const dispatch = useDispatch();
 
     useEffect(() => {
-    console.log("useEffect działa!"); // Dodaj ten log
     axiosInstance.get("/auth/me")
       .then(res => {
         dispatch(login({ user: res.data.login, role: res.data.role }));

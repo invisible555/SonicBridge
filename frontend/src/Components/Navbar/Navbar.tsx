@@ -4,13 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../store";
 import { logout as logoutAction } from "../../Auth/Auth";
 import axiosInstance from "../../Utils/axiosConfig";
-import { User, LogIn, LogOut, FileText, Settings, Info, Phone, UserPlus } from "lucide-react";
+import { User, LogIn, LogOut, FileText, Info, Phone, UserPlus } from "lucide-react";
 
 const profile = [
   { name: 'Edytuj profil', link: "/edit-profile", icon: <User className="w-4 h-4 mr-2"/> },
   { name: 'Profil', link: "/profile", icon: <User className="w-4 h-4 mr-2"/> },
   { name: 'Pliki', link: "/files", icon: <FileText className="w-4 h-4 mr-2"/> },
-  { name: 'Ustawienia', link: "/settings", icon: <Settings className="w-4 h-4 mr-2"/> },
   { name: 'Wyloguj', icon: <LogOut className="w-4 h-4 mr-2"/> },
 ];
 
