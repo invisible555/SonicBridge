@@ -2,6 +2,9 @@ import type FileElementProps from "./FileElementProps";
 import axiosInstance from "../../Utils/axiosConfig";
 import { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Loader2, Mic, Globe, Volume2, Trash2 } from "lucide-react";
 
 const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const [showPlayer, setShowPlayer] = useState(false);
@@ -15,16 +18,14 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
   const [targetLang, setTargetLang] = useState<string>("en");
   const [loadingTranslation, setLoadingTranslation] = useState(false);
 
-  // === TTS ===
   const [ttsLang, setTtsLang] = useState<string>("en");
   const [ttsStatus, setTtsStatus] = useState<"idle" | "queued" | "generating" | "done" | "error">("idle");
   const [ttsAudioUrl, setTtsAudioUrl] = useState<string | null>(null);
   const [ttsError, setTtsError] = useState<string | null>(null);
 
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null); // nieużywane – ignorujemy
   const [deleting, setDeleting] = useState(false);
 
-  // 🧠 Pobierz userId z Reduxa (authSlice)
   const user = useSelector((state: any) => state.auth.user);
   const userId = user?.id?.toString() || "default";
 
@@ -44,21 +45,9 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
         fileName,
         language,
       });
-
       const data = response.data;
-      console.log("Odpowiedź backendu (transcription):", data);
-
-      if (typeof data.text === "string") {
-        setTranscription(data.text);
-      } else if (data.status === "pending") {
-        setTranscription("⏳ Transkrypcja w toku...");
-      } else if (data.status === "done" && data.text) {
-        setTranscription(data.text);
-      } else {
-        setTranscription("⚠️ Oczekiwanie na wynik transkrypcji...");
-      }
-    } catch (err) {
-      console.error("Błąd przy generowaniu transkrypcji:", err);
+      setTranscription(data.text || "⏳ Transkrypcja w toku...");
+    } catch {
       setError("Wystąpił problem podczas generowania transkrypcji.");
     } finally {
       setLoadingTranscription(false);
@@ -70,23 +59,17 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     setLoadingTranslation(true);
     setError(null);
     setTranslation("");
+
     try {
       const form = new FormData();
       form.append("text", transcription);
       form.append("source_lang", language);
       form.append("target_lang", targetLang);
 
-      const response = await axiosInstance.post(`api/translation/translation`, form);
+      const response = await axiosInstance.post(`/api/translation/translation`, form);
       const data = response.data;
-      console.log("Odpowiedź backendu (translation):", data);
-
-      if (typeof data.translated_text === "string") {
-        setTranslation(data.translated_text);
-      } else {
-        setTranslation("⚠️ Nie udało się pobrać tłumaczenia.");
-      }
-    } catch (err) {
-      console.error("Błąd przy tłumaczeniu:", err);
+      setTranslation(data.translated_text || "⚠️ Nie udało się pobrać tłumaczenia.");
+    } catch {
       setError("Wystąpił problem podczas tłumaczenia.");
     } finally {
       setLoadingTranslation(false);
@@ -105,72 +88,53 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
     setTtsAudioUrl(null);
 
     try {
-      // 🧠 Przygotowanie danych formularza
       const form = new FormData();
       form.append("text", translation);
       form.append("voice", `tts_models/${ttsLang}/ljspeech/tacotron2-DDC`);
       form.append("output_name", `${fileName}_${ttsLang}.wav`);
       form.append("user_id", userId);
 
-      // 1️⃣ Wyślij tekst do backendu .NET (który przekieruje do Pythona)
       const res = await axiosInstance.post(`/api/tts/generate`, form);
       console.log("TTS generate:", res.data);
 
-      // ✅ Obsługa sytuacji, gdy backend użył cache
       if (res.data.status === "done" && res.data.file_path) {
-        console.log("✅ TTS plik znaleziony w cache:", res.data.file_path);
         const filePath = res.data.file_path;
         const [userIdFromPath, , filename] = filePath.split("/");
-
-        // Pobierz gotowy plik audio z backendu
         const audioRes = await axiosInstance.get(`/api/tts/download/${userIdFromPath}/${filename}`, {
           responseType: "blob",
         });
         const blobUrl = URL.createObjectURL(audioRes.data);
         setTtsAudioUrl(blobUrl);
         setTtsStatus("done");
-        return; // 🔚 nie rób pollingu
+        return;
       }
 
-      // 🔹 Standardowa ścieżka (gdy generacja jest nowa)
       const { task_id } = res.data;
       if (!task_id) throw new Error("Brak task_id w odpowiedzi TTS.");
 
-      // 2️⃣ Polling statusu co 2 sekundy
       setTtsStatus("generating");
       const interval = setInterval(async () => {
         try {
           const statusRes = await axiosInstance.get(`/api/tts/status/${task_id}`);
-          console.log("TTS status:", statusRes.data);
-
           if (statusRes.data.status === "done") {
             clearInterval(interval);
-            const filePath = statusRes.data.file_path; // np. "1/TTS/output.wav"
+            const filePath = statusRes.data.file_path;
             const [userIdFromPath, , filename] = filePath.split("/");
-
-            // 3️⃣ Pobierz gotowy plik audio
             const audioRes = await axiosInstance.get(`/api/tts/download/${userIdFromPath}/${filename}`, {
               responseType: "blob",
             });
-
             const blobUrl = URL.createObjectURL(audioRes.data);
             setTtsAudioUrl(blobUrl);
             setTtsStatus("done");
-          } else if (statusRes.data.status === "failed") {
-            clearInterval(interval);
-            setTtsStatus("error");
-            setTtsError(statusRes.data.error || "Błąd generowania TTS.");
           }
-        } catch (pollErr) {
-          console.error("Błąd pollingu TTS:", pollErr);
+        } catch {
           clearInterval(interval);
           setTtsStatus("error");
-          setTtsError("Nie udało się pobrać statusu TTS.");
+          setTtsError("Błąd sprawdzania statusu TTS.");
         }
       }, 2000);
-    } catch (err) {
-      console.error("Błąd przy generowaniu TTS:", err);
-      setTtsError("Wystąpił błąd przy wysyłaniu żądania TTS.");
+    } catch {
+      setTtsError("Błąd przy wysyłaniu żądania TTS.");
       setTtsStatus("error");
     }
   }, [translation, ttsLang, fileName, userId]);
@@ -181,150 +145,164 @@ const FileElement: React.FC<FileElementProps> = ({ fileName }) => {
       setShowPlayer(false);
       return;
     }
-
-    setError(null);
-
     try {
       const response = await axiosInstance.get(`/api/file/download/${encodeURIComponent(fileName)}`, {
         responseType: "blob",
       });
       const blobUrl = URL.createObjectURL(response.data);
       setAudioUrl(blobUrl);
-    } catch (err) {
-      console.warn("Plik audio nie został znaleziony.");
+    } catch {
       setAudioUrl(null);
     }
-
     setShowPlayer(true);
   }, [fileName, showPlayer]);
 
+  // === DELETE FILE ===
   const handleDelete = useCallback(async () => {
     if (!window.confirm(`Czy na pewno chcesz usunąć plik "${displayName}"?`)) return;
-
     setDeleting(true);
     try {
       await axiosInstance.delete(`/api/file/delete/${encodeURIComponent(fileName)}`);
       alert("Plik został usunięty.");
-    } catch (err) {
-      console.error("Błąd przy usuwaniu pliku:", err);
+    } catch {
       alert("Nie udało się usunąć pliku.");
     } finally {
       setDeleting(false);
     }
   }, [fileName, displayName]);
 
-  // === RENDER ===
+  // === UI ===
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col hover:shadow-lg transition-shadow w-full">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4 min-w-0 cursor-pointer" onClick={togglePlayer}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2m0 0l4-2m-4 2V6m0 6l-4-2m0 0V6m0 6l-4-2m8 10H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2h-3z"/>
-          </svg>
-          <p className="text-gray-800 font-medium truncate">{displayName}</p>
-        </div>
-        <button onClick={handleDelete} disabled={deleting} className="text-red-600 hover:text-red-800 text-sm ml-2">
+    <Card className="shadow-lg hover:shadow-xl transition-all border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900">
+      <CardHeader className="flex justify-between items-center">
+        <CardTitle className="text-lg font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-100">
+          🎧 {displayName}
+        </CardTitle>
+        <Button
+          variant="destructive"
+          size="sm"
+          onClick={handleDelete}
+          disabled={deleting}
+          className="flex items-center gap-2"
+        >
+          <Trash2 className="h-4 w-4" />
           {deleting ? "Usuwanie..." : "Usuń"}
-        </button>
-      </div>
+        </Button>
+      </CardHeader>
 
-      {showPlayer && (
-        <div className="mt-3">
-          {audioUrl ? (
-            <audio controls className="w-full" src={audioUrl}>
-              Twoja przeglądarka nie obsługuje odtwarzacza audio.
-            </audio>
-          ) : (
-            <p className="text-sm text-gray-500">Brak pliku audio.</p>
-          )}
+      <CardContent className="space-y-6">
+        {/* PLAYER */}
+        <div className="w-full flex justify-center">
+          <Button onClick={togglePlayer} variant="secondary" className="flex items-center gap-2">
+            <Volume2 className="h-4 w-4" />
+            {showPlayer ? "Ukryj odtwarzacz" : "Odtwórz"}
+          </Button>
+        </div>
+        {showPlayer && (
+          <div className="mt-3">
+            {audioUrl ? (
+              <audio controls className="w-full rounded-md border dark:border-gray-700">
+                <source src={audioUrl} type="audio/wav" />
+              </audio>
+            ) : (
+              <p className="text-sm text-gray-500 dark:text-gray-400">Brak pliku audio.</p>
+            )}
+          </div>
+        )}
 
-          {/* --- Transkrypcja --- */}
-          <div className="mt-3 flex items-center gap-2">
-            <label className="text-sm text-gray-700">Język transkrypcji:</label>
-            <select value={language} onChange={(e) => setLanguage(e.target.value)} className="border rounded px-2 py-1 text-sm">
+        {/* === TRANSKRYPCJA === */}
+        <Card className="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-neutral-800">
+          <CardTitle className="flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-200">
+            <Mic className="h-4 w-4 text-blue-600" /> Transkrypcja
+          </CardTitle>
+          <div className="flex items-center gap-2 mt-3">
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="border rounded px-2 py-1 text-sm bg-white dark:bg-neutral-900 text-gray-800 dark:text-gray-100"
+            >
               <option value="pl">Polski</option>
               <option value="en">Angielski</option>
               <option value="fr">Francuski</option>
               <option value="de">Niemiecki</option>
             </select>
-            <button
-              className="ml-3 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
-              onClick={generateTranscription}
-              disabled={loadingTranscription}
-            >
-              {loadingTranscription ? "Generuję..." : "Generuj transkrypcję"}
-            </button>
+            <Button onClick={generateTranscription} disabled={loadingTranscription}>
+              {loadingTranscription ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : "Generuj"}
+            </Button>
           </div>
-
-          {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
-
-          {transcription && !loadingTranscription && (
-            <div className="mt-3 bg-gray-100 rounded p-3 text-sm text-gray-800 whitespace-pre-wrap">
-              <div><b>Transkrypcja:</b></div>
+          {transcription && (
+            <div className="mt-3 bg-gray-100 dark:bg-neutral-700 rounded p-2 text-sm whitespace-pre-wrap">
               {transcription}
             </div>
           )}
+        </Card>
 
-          {/* --- Tłumaczenie --- */}
-          {transcription && !loadingTranscription && transcription.startsWith("⏳") === false && (
-            <div className="mt-4">
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-700">Język docelowy:</label>
-                <select value={targetLang} onChange={(e) => setTargetLang(e.target.value)} className="border rounded px-2 py-1 text-sm">
-                  <option value="en">Angielski</option>
-                  <option value="pl">Polski</option>
-                  <option value="fr">Francuski</option>
-                  <option value="de">Niemiecki</option>
-                </select>
-                <button
-                  className="ml-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"
-                  onClick={generateTranslation}
-                  disabled={loadingTranslation}
-                >
-                  {loadingTranslation ? "Tłumaczę..." : "Przetłumacz"}
-                </button>
-              </div>
-
-              {translation && !loadingTranslation && (
-                <div className="mt-3 bg-green-50 rounded p-3 text-sm text-gray-900 whitespace-pre-wrap">
-                  <div><b>Tłumaczenie:</b></div>
-                  {translation}
-                </div>
-              )}
-
-              {/* --- TTS --- */}
-              {translation && !loadingTranslation && (
-                <div className="mt-4 border-t pt-3">
-                  <div className="flex items-center gap-2">
-                    <label className="text-sm text-gray-700">Język głosu:</label>
-                    <select value={ttsLang} onChange={(e) => setTtsLang(e.target.value)} className="border rounded px-2 py-1 text-sm">
-                      <option value="en">English</option>
-                    </select>
-                    <button
-                      className="ml-3 px-3 py-1 bg-purple-600 text-white rounded text-sm hover:bg-purple-700"
-                      onClick={generateTTS}
-                      disabled={ttsStatus === "queued" || ttsStatus === "generating"}
-                    >
-                      {ttsStatus === "queued" || ttsStatus === "generating" ? "Generuję głos..." : "Generuj głos"}
-                    </button>
-                  </div>
-
-                  {ttsError && <p className="mt-2 text-sm text-red-500">{ttsError}</p>}
-
-                  {ttsAudioUrl && ttsStatus === "done" && (
-                    <div className="mt-3">
-                      <audio controls className="w-full" src={ttsAudioUrl}>
-                        Twoja przeglądarka nie obsługuje audio.
-                      </audio>
-                    </div>
-                  )}
-                </div>
-              )}
+        {/* === TŁUMACZENIE === */}
+        {transcription && (
+          <Card className="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-neutral-800">
+            <CardTitle className="flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-200">
+              <Globe className="h-4 w-4 text-green-600" /> Tłumaczenie
+            </CardTitle>
+            <div className="flex items-center gap-2 mt-3">
+              <select
+                value={targetLang}
+                onChange={(e) => setTargetLang(e.target.value)}
+                className="border rounded px-2 py-1 text-sm bg-white dark:bg-neutral-900 text-gray-800 dark:text-gray-100"
+              >
+                <option value="en">Angielski</option>
+                <option value="pl">Polski</option>
+                <option value="fr">Francuski</option>
+                <option value="de">Niemiecki</option>
+              </select>
+              <Button onClick={generateTranslation} disabled={loadingTranslation}>
+                {loadingTranslation ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : "Przetłumacz"}
+              </Button>
             </div>
-          )}
-        </div>
-      )}
-    </div>
+            {translation && (
+              <div className="mt-3 bg-green-50 dark:bg-green-900/30 rounded p-2 text-sm whitespace-pre-wrap">
+                {translation}
+              </div>
+            )}
+          </Card>
+        )}
+
+        {/* === TTS === */}
+        {translation && (
+          <Card className="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-neutral-800">
+            <CardTitle className="flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-200">
+              <Volume2 className="h-4 w-4 text-purple-600" /> Generowanie głosu
+            </CardTitle>
+            <div className="flex items-center gap-2 mt-3">
+              <select
+                value={ttsLang}
+                onChange={(e) => setTtsLang(e.target.value)}
+                className="border rounded px-2 py-1 text-sm bg-white dark:bg-neutral-900 text-gray-800 dark:text-gray-100"
+              >
+                <option value="en">English</option>
+                <option value="pl">Polski</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+              </select>
+              <Button onClick={generateTTS} disabled={ttsStatus === "queued" || ttsStatus === "generating"}>
+                {ttsStatus === "queued" || ttsStatus === "generating" ? (
+                  <Loader2 className="animate-spin h-4 w-4 mr-2" />
+                ) : (
+                  "Generuj głos"
+                )}
+              </Button>
+            </div>
+            {ttsError && <p className="mt-2 text-sm text-red-500">{ttsError}</p>}
+            {ttsAudioUrl && (
+              <div className="mt-3">
+                <audio controls className="w-full rounded border dark:border-gray-700">
+                  <source src={ttsAudioUrl} type="audio/wav" />
+                </audio>
+              </div>
+            )}
+          </Card>
+        )}
+      </CardContent>
+    </Card>
   );
 };
 

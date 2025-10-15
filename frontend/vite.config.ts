@@ -7,17 +7,23 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig(({ command }) => {
   const config: any = {
     plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@/components': path.resolve(__dirname, './src/components'), // ✅ kluczowe!
+      },
+    },
     server: {
       port: 5173,
-      host: 'localhost'
-    }
+      host: 'localhost',
+    },
   };
 
   if (command === 'serve') {
-    // HTTPS tylko w trybie deweloperskim!
+    // HTTPS tylko w trybie deweloperskim
     config.server.https = {
       key: fs.readFileSync(path.resolve(__dirname, 'certs/cert.key')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'certs/cert.crt'))
+      cert: fs.readFileSync(path.resolve(__dirname, 'certs/cert.crt')),
     };
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeElement from '../Components/HomeElement/HomeElement';
+import HomeElement from '../components/HomeElement/HomeElement';
 
 const homeData = [
     {
